@@ -1,0 +1,54 @@
+.theme-switcher {
+  position: relative;
+}
+
+.theme-switcher input {
+  opacity: 0;
+}
+.theme-switcher .theme-label{
+  margin-left: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.theme-switcher .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 100%;
+  padding: 2px;
+  background-color: black;
+  border-radius: 100px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.theme-switcher .slider::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.theme-switcher:has(input:checked) .slider {
+  background-color: white;
+}
+
+.theme-switcher:has(input:checked) .slider::before {
+  background-color: black;
+  left: calc(100% - 22px);
+}
+
+.theme-switcher:has(input:focus-visible) .slider {
+  outline: 2px solid rgb(199, 45, 204);
+}
+
+.theme-switcher:has(input:checked) + body {
+  background-color: black;
+}
